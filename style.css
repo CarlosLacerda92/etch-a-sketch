@@ -15,6 +15,8 @@ div.row {
 div.row > div.column {
     width: 25%;
     height: 2rem;
-    background-color: cadetblue;
-    border: 1px solid white;
+}
+
+div.row > div.column:hover {
+    background-color: #c8d3db;
 }
