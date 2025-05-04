@@ -2,17 +2,8 @@ const container     = document.getElementById('container');
 const newGridButton = document.getElementById('newGrid');
 
 let numberOfSquares = 4;
-let isDrawing       = false;
 
 newGridButton.addEventListener('click', askNumberOfSquares);
-
-document.addEventListener('mousedown', () => {
-    isDrawing = true;
-});
-
-document.addEventListener('mouseup', () => {
-    isDrawing = false;
-});
 
 function createGrid() {
 
@@ -65,10 +56,7 @@ function askNumberOfSquares() {
 }
 
 function changeBackgroundColor(event) {
-    if (isDrawing) {
-        const color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-        event.target.style.backgroundColor = color;
-    }
+   event.target.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
 }
 
 function attachEventListener(element, eventType, callback) {
