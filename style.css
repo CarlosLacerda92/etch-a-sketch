@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+div.row,
+div.row > div.column {
+    display: flex;
+    align-items: center;
+}
+
+div.row {
+    width: 100%;
+}
+
+div.row > div.column {
+    width: 25%;
+    height: 2rem;
+    background-color: cadetblue;
+    border: 1px solid white;
+}
