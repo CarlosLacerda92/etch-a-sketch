@@ -56,7 +56,14 @@ function askNumberOfSquares() {
 }
 
 function changeBackgroundColor(event) {
-   event.target.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+
+    const opacity = +event.target.style.opacity;
+
+    event.target.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+
+    if (opacity < 1) {
+        event.target.style.opacity = opacity + 0.1;
+    }
 }
 
 function attachEventListener(element, eventType, callback) {
