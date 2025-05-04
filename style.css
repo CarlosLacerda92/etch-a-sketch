@@ -23,6 +23,6 @@ div.row > div.column {
     font-size: 0.5rem;
 }
 
-div.row > div.column:hover {
+/* div.row > div.column:hover {
     background-color: #c8d3db;
-}
+} */

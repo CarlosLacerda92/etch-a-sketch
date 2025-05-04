@@ -2,8 +2,17 @@ const container     = document.getElementById('container');
 const newGridButton = document.getElementById('newGrid');
 
 let numberOfSquares = 4;
+let isDrawing       = false;
 
 newGridButton.addEventListener('click', askNumberOfSquares);
+
+document.addEventListener('mousedown', () => {
+    isDrawing = true;
+});
+
+document.addEventListener('mouseup', () => {
+    isDrawing = false;
+});
 
 function createGrid() {
 
@@ -21,13 +30,14 @@ function createGrid() {
             const column = document.createElement('div');
             column.classList.add('column');
             column.setAttribute('id', `column_${i + 1}_${j}`);
-            /* column.textContent = j + (numberOfSquares * i); */
 
             row.appendChild(column);
         }
 
         grid.appendChild(row);
     }
+
+    attachEventListener(grid, 'mouseover', changeBackgroundColor);
 
     container.appendChild(grid);
 }
@@ -52,6 +62,17 @@ function askNumberOfSquares() {
 
     removeGrid();
     createGrid();
+}
+
+function changeBackgroundColor(event) {
+    if (isDrawing) {
+        const color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+        event.target.style.backgroundColor = color;
+    }
+}
+
+function attachEventListener(element, eventType, callback) {
+    element.addEventListener(eventType, callback);
 }
 
 createGrid();
